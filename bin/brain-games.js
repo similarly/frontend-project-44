@@ -1,4 +1,7 @@
 #!/usr/bin/env node
-import * as cli from './cli.js'
+import { greet } from './cli.js'
+import { numberParity } from './brain-even.js'
 
-cli.greeting()
+const userName = greet()
+
+numberParity(userName)
