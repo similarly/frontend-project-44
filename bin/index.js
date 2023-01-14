@@ -1,6 +1,8 @@
 import greet from './cli.js'
-import  numberParity  from './games/brain-even.js'
+import numberParity from './games/brain-even.js'
 import calc from './games/brain-calc.js'
+import greatestCommonDivisor from './games/brain-gcd.js'
+
 import readLine from 'readline-sync'
 
 const session = {
@@ -45,5 +47,6 @@ const session = {
 session.greet()
 
 /* run games */
-session.run(numberParity)
-session.run(calc)
+// session.run(numberParity)
+// session.run(calc)
+session.run(greatestCommonDivisor)
