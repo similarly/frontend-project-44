@@ -19,16 +19,14 @@ const calc = {
   },
   /* set new value */
   newValue: function () {
-    const biggerRand = Math.floor(Math.random() * this.maxNum)
-    this.value = [
-      biggerRand,
-      Math.floor(Math.random() * biggerRand),
-      this.signs[Math.floor(Math.random() * this.signs.length)],
-    ]
+    const firstRand = Math.floor(Math.random() * this.maxNum)
+    const secondRand = Math.floor(Math.random() * biggerRand)
+    const sign = this.signs[Math.floor(Math.random() * this.signs.length)]
+    this.value = [firstRand, secondRand, sign]
   },
-  /* check if user answer is equal to correct answer */
+  /*check correctness of answer*/
   isCorrect: function (userAnswer) {
-    return (userAnswer == this.correctAnswer) ? true : false
+    return userAnswer == this.correctAnswer ? true : false
   },
 }
 

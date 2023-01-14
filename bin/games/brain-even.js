@@ -16,10 +16,8 @@ const numberParity = {
   },
   /*check correctness of answer*/
   isCorrect: function (userAnswer) {
-    return (userAnswer === this.correctAnswer)
-      ? true
-      : false
+    return userAnswer == this.correctAnswer ? true : false
   },
 }
 
-export { numberParity as default}
+export { numberParity as default }
