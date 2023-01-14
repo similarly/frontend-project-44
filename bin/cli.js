@@ -1,12 +1,7 @@
 import readLine from 'readline-sync'
 
-const PROMPT = '>'
-
-function greet() {
+export default function greet() {
   console.log('Welcome to the Brain Games!')
-  const userName = readLine.question(`May I ask your name?\n${PROMPT}`)
-  console.log(`Hello, ${userName}!`)
-  return userName
+  this.userName = readLine.question(`May I ask your name?\n${this.PROMPT}`)
+  console.log(`Hello, ${this.userName}!`)
 }
-
-export { greet }
