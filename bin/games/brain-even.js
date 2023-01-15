@@ -1,26 +1,24 @@
 #!/usr/bin/env node
 import { run } from '../index.js';
 
-const numberParity = {
-  startingText: 'Answer "yes" if the number is even, otherwise answer "no".',
-  value: undefined,
-  maxNum: 100,
-  /* get string representation of value for user */
-  get textValue() {
-    return this.value;
-  },
-  /* evaluate correct answer */
-  get correctAnswer() {
-    return this.value % 2 ? 'no' : 'yes';
-  },
-  /* set new value */
-  newValue() {
-    this.value = Math.floor(Math.random() * this.maxNum);
-  },
-  /* check correctness of answer */
-  isCorrect(userAnswer) {
-    return userAnswer === this.correctAnswer;
-  },
-};
+const startingText = 'Answer "yes" if the number is even, otherwise answer "no".';
+let value;
+const maxNum = 100;
+/* get string representation of value for user */
+function textValue() {
+  return value;
+}
+/* evaluate correct answer */
+function correctAnswer() {
+  return value % 2 ? 'no' : 'yes';
+}
+/* set new value */
+function newValue() {
+  value = Math.floor(Math.random() * maxNum);
+}
+/* check correctness of answer */
+function isCorrect(userAnswer) {
+  return userAnswer === correctAnswer;
+}
 
-run(numberParity);
+run(startingText, textValue, correctAnswer, newValue);

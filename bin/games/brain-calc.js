@@ -1,38 +1,30 @@
 #!/usr/bin/env node
 import { run } from '../index.js';
 
-const calc = {
-  startingText: 'What is the result of the expression?',
-  value: undefined,
-  maxNum: 50,
-  signs: ['+', '-', '*'],
-  /* get string representation of value for user */
-  get textValue() {
-    return `${this.value[0]} ${this.value[2]} ${this.value[1]}`;
-  },
-  /* evaluate correct answer */
-  get correctAnswer() {
-    if (this.value[2] === '+') {
-      return this.value[0] + this.value[1];
-    }
-    if (this.value[2] === '-') {
-      return this.value[0] - this.value[1];
-    }
-    return this.value[0] * this.value[1];
-  },
-  /* set new value */
-  newValue() {
-    const sign = this.signs[Math.floor(Math.random() * this.signs.length)];
-    const firstRand = Math.floor(Math.random() * this.maxNum);
-    const secondRand = Math.floor(
-      Math.random() * (sign === '-' ? firstRand : this.maxNum)
-    ); // ternary so that in case of substraction result will be positive
-    this.value = [firstRand, secondRand, sign];
-  },
-  /* check correctness of answer */
-  isCorrect(userAnswer) {
-    return userAnswer === this.correctAnswer.toString();
-  },
-};
+const startingText = 'What is the result of the expression?';
+const maxNum = 50;
+const signs = ['+', '-', '*'];
+let value;
+/* get string representation of value for user */
+function textValue() {
+  return `${value[0]} ${value[2]} ${value[1]}`;
+}
+/* evaluate correct answer */
+function correctAnswer() {
+  if (value[2] === '+') {
+    return value[0] + value[1];
+  }
+  if (value[2] === '-') {
+    return value[0] - value[1];
+  }
+  return value[0] * value[1];
+}
+/* set new value */
+function newValue() {
+  const sign = signs[Math.floor(Math.random() * signs.length)];
+  const firstRand = Math.floor(Math.random() * maxNum);
+  const secondRand = Math.floor(Math.random() * (sign === '-' ? firstRand : maxNum)); // ternary so that in case of substraction result will be positive
+  value = [firstRand, secondRand, sign];
+}
 
-run(calc);
+run(startingText, textValue, correctAnswer, newValue);
