@@ -1,23 +1,23 @@
 const numberParity = {
   startingText: 'Answer "yes" if the number is even, otherwise answer "no".',
-  value: '',
+  value: undefined,
   maxNum: 100,
   /* get string representation of value for user */
   get textValue() {
-    return this.value
+    return this.value;
   },
   /* evaluate correct answer */
   get correctAnswer() {
-    return this.value % 2 ? 'no' : 'yes'
+    return this.value % 2 ? 'no' : 'yes';
   },
   /* set new value */
-  newValue: function () {
-    this.value = Math.floor(Math.random() * this.maxNum)
+  newValue() {
+    this.value = Math.floor(Math.random() * this.maxNum);
   },
-  /*check correctness of answer*/
-  isCorrect: function (userAnswer) {
-    return userAnswer == this.correctAnswer ? true : false
+  /* check correctness of answer */
+  isCorrect(userAnswer) {
+    return userAnswer === this.correctAnswer;
   },
-}
+};
 
-export { numberParity as default }
+export { numberParity };
