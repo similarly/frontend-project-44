@@ -2,7 +2,7 @@ const numberParity = {
   startingText: 'Answer "yes" if the number is even, otherwise answer "no".',
   value: '',
   maxNum: 100,
-  /* get string representation of value */
+  /* get string representation of value for user */
   get textValue() {
     return this.value
   },

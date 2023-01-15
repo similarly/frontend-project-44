@@ -3,7 +3,7 @@ const calc = {
   value: '',
   maxNum: 50,
   signs: ['+', '-', '*'],
-  /* get string representation of value */
+  /* get string representation of value for user*/
   get textValue() {
     return this.value[0] + ' ' + this.value[2] + ' ' + this.value[1]
   },
