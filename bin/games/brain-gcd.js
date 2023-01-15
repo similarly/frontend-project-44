@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+import { session } from '../index.js';
+
 const greatestCommonDivisor = {
   startingText: 'Find the greatest common divisor of given numbers.',
   value: undefined,
@@ -30,4 +33,5 @@ const greatestCommonDivisor = {
   },
 };
 
-export { greatestCommonDivisor };
+session.greet();
+session.run(greatestCommonDivisor);

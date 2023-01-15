@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+import { session } from '../index.js';
+
 const numberParity = {
   startingText: 'Answer "yes" if the number is even, otherwise answer "no".',
   value: undefined,
@@ -20,4 +23,5 @@ const numberParity = {
   },
 };
 
-export { numberParity };
+session.greet();
+session.run(numberParity);

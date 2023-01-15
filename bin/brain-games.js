@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-import './index.js';
+import { session } from './index.js';
+
+session.greet();

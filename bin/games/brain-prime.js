@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+import { session } from '../index.js';
+
 const prime = {
   startingText: 'Answer "yes" if given number is prime. Otherwise answer "no".',
   value: undefined,
@@ -28,4 +31,5 @@ const prime = {
   },
 };
 
-export { prime };
+session.greet();
+session.run(prime);

@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+import { session } from '../index.js';
+
 const calc = {
   startingText: 'What is the result of the expression?',
   value: undefined,
@@ -19,9 +22,11 @@ const calc = {
   },
   /* set new value */
   newValue() {
-    const firstRand = Math.floor(Math.random() * this.maxNum);
-    const secondRand = Math.floor(Math.random() * this.maxNum);
     const sign = this.signs[Math.floor(Math.random() * this.signs.length)];
+    const firstRand = Math.floor(Math.random() * this.maxNum);
+    const secondRand = Math.floor(
+      Math.random() * (sign === '-' ? firstRand : this.maxNum)
+    ); // ternary so that in case of substraction result will be positive
     this.value = [firstRand, secondRand, sign];
   },
   /* check correctness of answer */
@@ -30,4 +35,5 @@ const calc = {
   },
 };
 
-export { calc };
+session.greet();
+session.run(calc);

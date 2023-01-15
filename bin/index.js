@@ -1,16 +1,11 @@
 import readLine from 'readline-sync';
 import { greet } from './cli.js';
-import { numberParity } from './games/brain-even.js';
-import { calc } from './games/brain-calc.js';
-import { greatestCommonDivisor } from './games/brain-gcd.js';
-import { arithProgression } from './games/brain-progression.js';
-import { prime } from './games/brain-prime.js';
 
-const session = {
+export const session = {
   NEEDED_WINS: 3,
   TRIES: 3,
-  PROMPT: '',
   greet,
+  PROMPT: '',
   /* game logic */
   run(game) {
     let wins = 0;
@@ -19,7 +14,7 @@ const session = {
       game.newValue();
       /* ask and get answer */
       console.log(`Question: ${game.textValue}`);
-      const userAnswer = readLine.question(`Your answer:${this.PROMPT}`);
+      const userAnswer = readLine.question(`Your answer: ${this.PROMPT}`);
       /* check answer correctness */
       if (game.isCorrect(userAnswer)) {
         console.log('Correct!');
@@ -28,6 +23,7 @@ const session = {
       console.log(
         `'${userAnswer}' is wrong answer ;(. Correct answer was '${game.correctAnswer}'.`
       );
+      console.log(`Let's try again, ${this.userName}!`);
       return false;
     };
     /* initiate game */
@@ -44,14 +40,5 @@ const session = {
     if (wins === this.NEEDED_WINS) {
       console.log(`Congratulations, ${this.userName}!`);
     }
-    // console.log('\n');
   },
 };
-/* get userName */
-session.greet();
-/* run games */
-session.run(numberParity);
-session.run(calc);
-session.run(greatestCommonDivisor);
-session.run(arithProgression);
-session.run(prime);
