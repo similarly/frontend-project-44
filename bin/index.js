@@ -9,7 +9,7 @@ import { prime } from './games/brain-prime.js';
 const session = {
   NEEDED_WINS: 3,
   TRIES: 3,
-  PROMPT: '>',
+  PROMPT: '',
   greet,
   /* game logic */
   run(game) {
@@ -19,7 +19,7 @@ const session = {
       game.newValue();
       /* ask and get answer */
       console.log(`Question: ${game.textValue}`);
-      const userAnswer = readLine.question(`Your answer: ${this.PROMPT}`);
+      const userAnswer = readLine.question(`Your answer:${this.PROMPT}`);
       /* check answer correctness */
       if (game.isCorrect(userAnswer)) {
         console.log('Correct!');
@@ -40,7 +40,7 @@ const session = {
     if (wins === this.NEEDED_WINS) {
       console.log(`Congratulations, ${this.userName}!`);
     }
-    console.log('\n');
+    // console.log('\n');
   },
 };
 /* get userName */
