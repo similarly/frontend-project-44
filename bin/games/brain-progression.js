@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { session } from '../index.js';
+import { run } from '../index.js';
 
 const arithProgression = {
   startingText: 'What number is missing in the progression?',
@@ -35,5 +35,4 @@ const arithProgression = {
   },
 };
 
-session.greet();
-session.run(arithProgression);
+run(arithProgression);

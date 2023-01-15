@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { session } from '../index.js';
+import { run } from '../index.js';
 
 const numberParity = {
   startingText: 'Answer "yes" if the number is even, otherwise answer "no".',
@@ -23,5 +23,4 @@ const numberParity = {
   },
 };
 
-session.greet();
-session.run(numberParity);
+run(numberParity);

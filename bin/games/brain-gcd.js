@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { session } from '../index.js';
+import { run } from '../index.js';
 
 const greatestCommonDivisor = {
   startingText: 'Find the greatest common divisor of given numbers.',
@@ -33,5 +33,4 @@ const greatestCommonDivisor = {
   },
 };
 
-session.greet();
-session.run(greatestCommonDivisor);
+run(greatestCommonDivisor);

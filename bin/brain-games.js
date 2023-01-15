@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { session } from './index.js';
+import { greet } from './cli.js';
 
-session.greet();
+greet();

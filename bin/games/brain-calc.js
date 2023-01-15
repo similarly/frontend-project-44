@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { session } from '../index.js';
+import { run } from '../index.js';
 
 const calc = {
   startingText: 'What is the result of the expression?',
@@ -35,5 +35,4 @@ const calc = {
   },
 };
 
-session.greet();
-session.run(calc);
+run(calc);
