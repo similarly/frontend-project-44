@@ -1,5 +1,5 @@
 const greatestCommonDivisor = {
-  startingText: 'Answer "yes" if the number is even, otherwise answer "no".',
+  startingText: 'Find the greatest common divisor of given numbers.',
   value: undefined,
   maxNum: 100,
   /* get string representation of value */

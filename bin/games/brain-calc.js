@@ -20,7 +20,7 @@ const calc = {
   /* set new value */
   newValue() {
     const firstRand = Math.floor(Math.random() * this.maxNum);
-    const secondRand = Math.floor(Math.random() * firstRand);
+    const secondRand = Math.floor(Math.random() * this.maxNum);
     const sign = this.signs[Math.floor(Math.random() * this.signs.length)];
     this.value = [firstRand, secondRand, sign];
   },

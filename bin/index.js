@@ -23,18 +23,22 @@ const session = {
       /* check answer correctness */
       if (game.isCorrect(userAnswer)) {
         console.log('Correct!');
-        wins += 1;
-      } else {
-        console.log(
-          `'${userAnswer}' is wrong answer ;(. Correct answer was '${game.correctAnswer}'.`
-        );
+        return true;
       }
+      console.log(
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${game.correctAnswer}'.`
+      );
+      return false;
     };
     /* initiate game */
     console.log(game.startingText);
     /* run 3 rounds */
     for (let i = 0; i < this.TRIES; i += 1) {
-      roundStart();
+      if (roundStart()) {
+        wins += 1;
+      } else {
+        break;
+      }
     }
     /* check amount of wins */
     if (wins === this.NEEDED_WINS) {
