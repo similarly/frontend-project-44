@@ -8,6 +8,8 @@ asciicasts:
 6th step: https://asciinema.org/a/ISdVMqO6V8mAvzhRm0dJdWeUn
 7th step: https://asciinema.org/a/R5ogdeA4GPDaYVeSKhVHPCGq7
 8th step: https://asciinema.org/a/vxKbK8J7uaJw4PpAS6HxY1dN2
+9th step: https://asciinema.org/a/Q4IkE43ZF7OYcsEJoRHgrOQ1w
+
 
 
 

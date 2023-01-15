@@ -3,6 +3,7 @@ import numberParity from './games/brain-even.js'
 import calc from './games/brain-calc.js'
 import greatestCommonDivisor from './games/brain-gcd.js'
 import arithProgression from './games/brain-progression.js'
+import prime from './games/brain-prime.js'
 
 import readLine from 'readline-sync'
 
@@ -51,4 +52,5 @@ session.greet()
 // session.run(numberParity)
 // session.run(calc)
 // session.run(greatestCommonDivisor)
-session.run(arithProgression)
+// session.run(arithProgression)
+session.run(prime)
