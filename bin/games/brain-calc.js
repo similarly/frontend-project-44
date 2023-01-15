@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import run from '../index.js';
 
 const startingText = 'What is the result of the expression?';
