@@ -20,7 +20,7 @@ const arithProgression = {
       Math.random() * (this.maxLen - this.minLen) + this.minLen
     );
     const startNumber = Math.floor(Math.random() * 30) + 1;
-    const step = Math.floor(Math.random() * 10);
+    const step = Math.floor(Math.random() * 9) + 1;
     /* create progression */
     this.value = Array.from({ length: arrLength }, (_, i) => startNumber + step * i);
     /* choose random unknown element */
