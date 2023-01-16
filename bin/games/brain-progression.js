@@ -1,30 +1,27 @@
 #!/usr/bin/env node
-import run from '../index.js';
+import run from '../../src/index.js';
+import getRandomNumber from '../../src/getRandomNumber.js';
 
+const MIN_STEP = 3;
+const MAX_STEP = 9;
+const MIN_NUM = 10;
+const MAX_NUM = 100;
+const MIN_LEN = 5;
+const MAX_LEN = 15;
 const startingText = 'What number is missing in the progression?';
-let value;
-let unknownIndex;
-const maxLen = 15;
-const minLen = 5;
-/* get string representation of value for user */
-function formattedValue() {
-  const unknownElementArray = Array.from(value);
-  unknownElementArray[unknownIndex] = '..';
-  return unknownElementArray.join(' ');
-}
-/* set new value */
-function setValue() {
-  const arrLength = Math.floor(Math.random() * (maxLen - minLen) + minLen);
-  const startNumber = Math.floor(Math.random() * 30) + 1;
-  const step = Math.floor(Math.random() * 9) + 1;
-  /* create progression */
-  value = Array.from({ length: arrLength }, (_, i) => startNumber + step * i);
-  /* choose random unknown element */
-  unknownIndex = Math.floor(Math.random() * value.length);
-}
-/* evaluate correct answer */
-function correctAnswer() {
-  return value[unknownIndex];
+
+function getRoundData() {
+  const len = getRandomNumber(MIN_LEN, MAX_LEN);
+  const firstNumber = getRandomNumber(MIN_NUM, MAX_NUM);
+  const step = getRandomNumber(MIN_STEP, MAX_STEP);
+  const unknownIndex = getRandomNumber(0, len - 1);
+  const progression = Array.from({ length: len }, (_, i) => firstNumber + step * i);
+  /* evaluating answer */
+  const correctAnswer = progression[unknownIndex];
+  /* creating question value */
+  progression[unknownIndex] = '..';
+  const question = progression.join(' ');
+  return [question, correctAnswer];
 }
 
-run(startingText, formattedValue, correctAnswer, setValue);
+run(startingText, getRoundData);

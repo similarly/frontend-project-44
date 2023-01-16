@@ -1,30 +1,33 @@
 #!/usr/bin/env node
-import run from '../index.js';
+import run from '../../src/index.js';
+import getRandomNumber from '../../src/getRandomNumber.js';
 
+const MIN_NUM = 1;
+const MAX_NUM = 50;
+const SIGNS = ['+', '-', '*'];
 const startingText = 'What is the result of the expression?';
-const maxNum = 50;
-const signs = ['+', '-', '*'];
-let value;
-/* get string representation of value for user */
-function formattedValue() {
-  return `${value[0]} ${value[2]} ${value[1]}`;
-}
-/* set new value */
-function setValue() {
-  const sign = signs[Math.floor(Math.random() * signs.length)];
-  const firstRand = Math.floor(Math.random() * maxNum);
-  const secondRand = Math.floor(Math.random() * (sign === '-' ? firstRand : maxNum)); // ternary so that in case of substraction result will be positive
-  value = [firstRand, secondRand, sign];
-}
-/* evaluate correct answer */
-function correctAnswer() {
-  if (value[2] === '+') {
-    return value[0] + value[1];
+
+function getRoundData() {
+  /* creating question value */
+  let correctAnswer;
+  const sign = SIGNS[getRandomNumber(0, SIGNS.length - 1)];
+  const firstRand = getRandomNumber(MIN_NUM, MAX_NUM);
+  const secondRand = getRandomNumber(MIN_NUM, sign === '-' ? firstRand : MAX_NUM); // ternary so that in case of substraction result will be positive
+  const question = `${firstRand} ${sign} ${secondRand}`;
+  /* evaluating answer */
+  switch (sign) {
+    case '+':
+      correctAnswer = firstRand + secondRand;
+      break;
+    case '-':
+      correctAnswer = firstRand - secondRand;
+      break;
+    case '*':
+      correctAnswer = firstRand * secondRand;
+      break;
+    default:
   }
-  if (value[2] === '-') {
-    return value[0] - value[1];
-  }
-  return value[0] * value[1];
+  return [question, correctAnswer];
 }
 
-run(startingText, formattedValue, correctAnswer, setValue);
+run(startingText, getRoundData);

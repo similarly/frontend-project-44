@@ -1,20 +1,18 @@
 #!/usr/bin/env node
-import run from '../index.js';
+import run from '../../src/index.js';
+import getRandomNumber from '../../src/getRandomNumber.js';
 
+const MIN_NUM = 1;
+const MAX_NUM = 100;
 const startingText = 'Answer "yes" if the number is even, otherwise answer "no".';
-let value;
-const maxNum = 100;
-/* get string representation of value for user */
-function formattedValue() {
-  return value;
-}
-/* set new value */
-function setValue() {
-  value = Math.floor(Math.random() * maxNum);
-}
-/* evaluate correct answer */
-function correctAnswer() {
-  return value % 2 ? 'no' : 'yes';
+
+function getRoundData() {
+  /* creating question value */
+  const value = getRandomNumber(MIN_NUM, MAX_NUM);
+  const question = `${value}`;
+  /* evaluating answer */
+  const correctAnswer = value % 2 ? 'no' : 'yes';
+  return [question, correctAnswer];
 }
 
-run(startingText, formattedValue, correctAnswer, setValue);
+run(startingText, getRoundData);
