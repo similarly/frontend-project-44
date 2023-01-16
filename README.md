@@ -31,6 +31,8 @@
 > npm ci \
 > npm link
 
+После npm link игры можно запускать просто введя их название (brain-even, brain-gcd, ..)
+
 ### asciicasts:
 5th step: https://asciinema.org/a/DUSJpy5M11tSFcN0UuGcf3fye \
 6th step: https://asciinema.org/a/ISdVMqO6V8mAvzhRm0dJdWeUn \
